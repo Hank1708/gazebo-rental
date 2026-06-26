@@ -9,12 +9,25 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repository: Hank1708/gazebo-rental
+          ref: main
+          
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install
-      - run: npx vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+          
+      - name: List files
+        run: ls -la
+        
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Deploy to Vercel
+        run: npx vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
