@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  basePath: '/gazebo-rental',
 }
 
 module.exports = nextConfig
