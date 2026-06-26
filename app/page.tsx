@@ -31,8 +31,14 @@ export default function HomePage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {gazebos.map((gazebo, index) => (
               <div key={gazebo.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow h-full flex flex-col">
-                <div className={"h-48 bg-gradient-to-br " + gradients[index] + " flex items-center justify-center"}>
-                  <TreePine className="h-16 w-16 text-white/80" />
+                <div className="h-48 overflow-hidden">
+                  {gazebo.image === "gradient" ? (
+                    <div className={"w-full h-full bg-gradient-to-br " + gradients[index] + " flex items-center justify-center"}>
+                      <TreePine className="h-16 w-16 text-white/80" />
+                    </div>
+                  ) : (
+                    <img src={gazebo.image} alt={gazebo.name} className="h-full w-full object-cover" />
+                  )}
                 </div>
                 <div className="p-5 space-y-3 flex flex-col flex-1">
                   <div className="flex items-start justify-between gap-2">
@@ -62,4 +68,3 @@ export default function HomePage() {
     </div>
   );
 }
-
