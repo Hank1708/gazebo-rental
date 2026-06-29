@@ -1,4 +1,7 @@
-import { TreePine, Users, Clock, Sun } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { TreePine, Users, Clock, Sun, ChevronLeft, ChevronRight } from "lucide-react";
 import { gazebos } from "@/lib/data";
 
 function formatPrice(price: number): string {
@@ -13,6 +16,49 @@ const gradients = [
   "from-blue-400 to-blue-600",
   "from-rose-400 to-rose-600",
 ];
+
+function ImageCarousel({ images, name }: { images: string[]; name: string }) {
+  const [index, setIndex] = useState(0);
+
+  if (images.length === 0 || images[0] === "gradient") {
+    return null;
+  }
+
+  return (
+    <div className="relative h-48 group">
+      <img src={images[index]} alt={name} className="h-full w-full object-cover" />
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIndex((i) => (i - 1 + images.length) % images.length);
+            }}
+            className="absolute left-1 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-1 text-white opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIndex((i) => (i + 1) % images.length);
+            }}
+            className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-1 text-white opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+            {images.map((_, i) => (
+              <div key={i} className={`h-1.5 w-1.5 rounded-full ${i === index ? "bg-white" : "bg-white/50"}`} />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
 
 export default function HomePage() {
   return (
@@ -31,15 +77,13 @@ export default function HomePage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {gazebos.map((gazebo, index) => (
               <div key={gazebo.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow h-full flex flex-col">
-                <div className="h-48 overflow-hidden">
-                  {gazebo.image === "gradient" ? (
-                    <div className={"w-full h-full bg-gradient-to-br " + gradients[index] + " flex items-center justify-center"}>
-                      <TreePine className="h-16 w-16 text-white/80" />
-                    </div>
-                  ) : (
-                    <img src={gazebo.image} alt={gazebo.name} className="h-full w-full object-cover" />
-                  )}
-                </div>
+                {gazebo.image === "gradient" ? (
+                  <div className={"h-48 bg-gradient-to-br " + gradients[index] + " flex items-center justify-center"}>
+                    <TreePine className="h-16 w-16 text-white/80" />
+                  </div>
+                ) : (
+                  <ImageCarousel images={gazebo.images} name={gazebo.name} />
+                )}
                 <div className="p-5 space-y-3 flex flex-col flex-1">
                   <div className="flex items-start justify-between gap-2">
                     <h2 className="text-lg font-semibold">{gazebo.name}</h2>
