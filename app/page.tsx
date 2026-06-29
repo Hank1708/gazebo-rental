@@ -9,7 +9,7 @@ const gradients = [
   "from-emerald-400 to-emerald-600",
   "from-sky-400 to-sky-600",
   "from-amber-400 to-amber-600",
-  "from-teal-400 to-teal-600",
+  "from-green-500 to-green-700",
   "from-blue-400 to-blue-600",
   "from-rose-400 to-rose-600",
 ];
@@ -50,14 +50,17 @@ export default function HomePage() {
                   </div>
                   <p className="text-sm text-gray-500 line-clamp-2 flex-1">{gazebo.description}</p>
                   <div className="flex items-center gap-4 text-sm text-gray-500 pt-2 border-t">
-                    <span className="flex items-center gap-1">
-                      <Clock className="h-4 w-4" />
-                      {formatPrice(gazebo.pricePerHour)}/час
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Sun className="h-4 w-4" />
-                      {gazebo.pricePerDay && formatPrice(gazebo.pricePerDay)}/день
-                    </span>
+                    {gazebo.pricePerHour ? (
+                      <span className="flex items-center gap-1">
+                        <Clock className="h-4 w-4" />
+                        {formatPrice(gazebo.pricePerHour)}/час
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-1">
+                        <Sun className="h-4 w-4" />
+                        {formatPrice(gazebo.pricePerDay)}/день
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
