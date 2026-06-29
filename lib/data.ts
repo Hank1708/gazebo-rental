@@ -56,7 +56,7 @@ export const galleryPhotos: GalleryPhoto[] = [
   {
     id: "gallery-1",
     src: "/images/allview.jpg",
-    caption: "Общий вид территории",
+    caption: "Добро пожаловать!",
   },
 ];
 
@@ -66,16 +66,16 @@ export const gazebos: Gazebo[] = [
     description: "Большая беседка для шумных компаний. Идеальна для праздников и корпоративов.",
     fullDescription: "Беседка «Большая» расположена среди берёз. Внутри — стол на 40 персон, скамейки, розетка для зарядки устройств и LED-подсветка. Рядом находится мангальная зона с решёткой и шампурами.",
     pricePerDay: 4000,
-    image: "/images/gazebo-forest.webp",
-    images: ["/images/gazebo-forest.webp", "/images/cover.png", "/images/pond-view.png"],
+    image: "/images/Gazebo1.jpg",
+    images: ["/images/Gazebo1.jpg", "/images/Gazebo2.jpg"],
   },
   {
     id: "gazebo-2", name: "Беседка «Средняя»", capacity: 12,
     description: "Уютная беседка для компании друзей или семьи.",
     fullDescription: "Беседка «Средняя» — отличный выбор для компании до 12 человек. Внутри — стол, скамейки, мангал рядом. Электричество проведено, есть освещение и розетки.",
     pricePerDay: 3000,
-    image: "/images/gazebo-spacious.webp",
-    images: ["/images/gazebo-spacious.webp", "/images/pond-view.png", "/images/cover.png"],
+    image: "/images/Gazebo2.jpg",
+    images: ["/images/Gazebo2.jpg", "/images/Gazebo1.jpg"],
   },
   {
     id: "gazebo-3", name: "Домик Рыбака", capacity: 4,
