@@ -12,7 +12,27 @@ export const metadata: Metadata = {
     description: "Уютные беседки для отдыха у Сузгарьевского водоёма в Мордовии.",
     type: "website",
     locale: "ru_RU",
+    siteName: "Беседки у Сузгарьевского водоёма",
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Беседки у Сузгарьевского водоёма",
+  "description": "Аренда беседок и волейбольной площадки у Сузгарьевского водоёма в Мордовии",
+  "url": "https://сузгарье.рф",
+  "telephone": "8-927-640-68-71",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Рузаевский район",
+    "addressRegion": "Мордовия",
+    "addressCountry": "Россия",
+    "streetAddress": "Сузгарьевский водоём"
+  },
+  "priceRange": "200 - 4000 ₽",
+  "openingHours": "Mo-Su 08:00-22:00",
+  "image": "https://сузгарье.рф/images/allview.jpg",
 };
 
 export default function RootLayout({
@@ -22,6 +42,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col">
         <header className="sticky top-0 z-50 w-full border-b border-teal-100 bg-white/70 backdrop-blur-md">
           <div className="container mx-auto px-4 h-14 flex items-center justify-between">
