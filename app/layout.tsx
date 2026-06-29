@@ -15,29 +15,29 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body className="min-h-screen bg-gradient-to-b from-green-50 to-blue-50 flex flex-col">
-        <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md">
+      <body className="min-h-screen flex flex-col">
+        <header className="sticky top-0 z-50 w-full border-b border-teal-100 bg-white/70 backdrop-blur-md">
           <div className="container mx-auto px-4 h-14 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-green-900">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-600 text-white">
+            <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-teal-800">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-teal-500 to-emerald-600 text-white shadow-sm">
                 <TreePine className="h-4 w-4" />
               </div>
               <span className="hidden sm:inline">Сузгарье</span>
             </Link>
             <nav className="flex items-center gap-1">
-              <Link href="/" className="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium text-gray-600 hover:text-green-700 hover:bg-green-50 transition-colors">
+              <Link href="/" className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-teal-600 hover:text-teal-800 hover:bg-teal-50 transition-colors">
                 <Home className="h-4 w-4" />
                 <span className="hidden sm:inline">Главная</span>
               </Link>
-              <Link href="/contacts" className="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium text-gray-600 hover:text-green-700 hover:bg-green-50 transition-colors">
+              <Link href="/contacts" className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-teal-600 hover:text-teal-800 hover:bg-teal-50 transition-colors">
                 <Phone className="h-4 w-4" />
                 <span className="hidden sm:inline">Контакты</span>
               </Link>
-              <Link href="/reviews" className="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium text-gray-600 hover:text-green-700 hover:bg-green-50 transition-colors">
+              <Link href="/reviews" className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-teal-600 hover:text-teal-800 hover:bg-teal-50 transition-colors">
                 <Star className="h-4 w-4" />
                 <span className="hidden sm:inline">Отзывы</span>
               </Link>
-              <Link href="/gallery" className="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium text-gray-600 hover:text-green-700 hover:bg-green-50 transition-colors">
+              <Link href="/gallery" className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-teal-600 hover:text-teal-800 hover:bg-teal-50 transition-colors">
                 <Images className="h-4 w-4" />
                 <span className="hidden sm:inline">Галерея</span>
               </Link>
@@ -45,8 +45,8 @@ export default function RootLayout({
           </div>
         </header>
         <main className="flex-1">{children}</main>
-        <footer className="border-t bg-white/50">
-          <div className="container mx-auto px-4 py-6 text-center text-sm text-gray-500">
+        <footer className="border-t border-teal-100 bg-white/40">
+          <div className="container mx-auto px-4 py-6 text-center text-sm text-teal-500">
             <p>© {new Date().getFullYear()} Беседки у Сузгарьевского водоёма</p>
           </div>
         </footer>
