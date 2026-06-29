@@ -4,8 +4,8 @@ export interface Gazebo {
   capacity: number;
   description: string;
   fullDescription: string;
-  pricePerHour: number;
-  pricePerDay?: number;
+  pricePerHour?: number;
+  pricePerDay: number;
   image: string;
   images: string[];
 }
@@ -63,25 +63,25 @@ export const galleryPhotos: GalleryPhoto[] = [
 export const gazebos: Gazebo[] = [
   {
     id: "gazebo-1", name: "Беседка «Большая»", capacity: 40,
-    description: "Уютная беседка в тени деревьев с видом на водоём. Идеальна для большой компании.",
+    description: "Большая беседка для шумных компаний. Идеальна для праздников и корпоративов.",
     fullDescription: "Беседка «Большая» расположена среди берёз. Внутри — стол на 40 персон, скамейки, розетка для зарядки устройств и LED-подсветка. Рядом находится мангальная зона с решёткой и шампурами.",
     pricePerDay: 4000,
     image: "/images/gazebo-forest.webp",
     images: ["/images/gazebo-forest.webp", "/images/cover.png", "/images/pond-view.png"],
   },
   {
-    id: "gazebo-2", name: "Беседка «Средняя»", capacity: 20,
-    description: "Большая беседка для шумных компаний. Есть мангал и стол на всю компанию.",
-    fullDescription: "Средняя беседка — центральное место для больших компаний. Под крышей свободно размещаются 20 человек за длинным столом. Беседка оборудована рабочей зоной для приготовления еды.",
+    id: "gazebo-2", name: "Беседка «Средняя»", capacity: 12,
+    description: "Уютная беседка для компании друзей или семьи.",
+    fullDescription: "Беседка «Средняя» — отличный выбор для компании до 12 человек. Внутри — стол, скамейки, мангал рядом. Электричество проведено, есть освещение и розетки.",
     pricePerDay: 3000,
     image: "/images/gazebo-spacious.webp",
     images: ["/images/gazebo-spacious.webp", "/images/pond-view.png", "/images/cover.png"],
   },
   {
     id: "gazebo-3", name: "Домик Рыбака", capacity: 4,
-    description: "Маленький домик для романтического вечера или отдыха вдвоём у воды.",
-    fullDescription: "Самая маленькая и романтичная беседка на территории. Рассчитана на 2–4 человек,  из неё открывается лучший вид на закат. Внутри — небольшой столик, раковина и мягкая кровать.",
-    pricePerHour: 400, pricePerDay: 2000,
+    description: "Уютный домик прямо у воды для рыбаков и романтиков.",
+    fullDescription: "Домик Рыбака расположен прямо у кромки воды. Внутри — небольшой столик, мягкие сиденья, вечером включается гирлянда. Рядом есть место для кострища. Прекрасно подходит для рыбалки, свидания или тихого вечера.",
+    pricePerDay: 2000,
     image: "/images/gazebo-cozy.webp",
     images: ["/images/gazebo-cozy.webp", "/images/pond-view.png", "/images/gazebo-forest.webp"],
   },
@@ -97,7 +97,7 @@ export const gazebos: Gazebo[] = [
     id: "gazebo-5", name: "Беседка «Рыбацкая»", capacity: 6,
     description: "Расположена прямо у воды. Свой пирс для рыбалки и место для лодки.",
     fullDescription: "«Рыбацкая» — мечта любого любителя рыбалки. Беседка стоит на сваях прямо над водой, с собственным небольшим пирсом. Можно рыбачить, не отходя от стола.",
-    pricePerHour: 700, pricePerDay: 3500,
+    pricePerDay: 3500,
     image: "/images/gazebo-fishing.jpg",
     images: ["/images/gazebo-fishing.jpg", "/images/pond-view.png", "/images/gazebo-forest.webp"],
   },
@@ -105,7 +105,7 @@ export const gazebos: Gazebo[] = [
     id: "gazebo-6", name: "Беседка «Праздничная»", capacity: 20,
     description: "Самая большая беседка для свадеб, юбилеев и корпоративов.",
     fullDescription: "Самая большая и торжественная беседка на территории. Под её крышей свободно размещаются до 20 гостей. Имеется сцена для музыкантов или ведущего, профессиональная акустическая система.",
-    pricePerHour: 2000, pricePerDay: 10000,
+    pricePerDay: 10000,
     image: "/images/pond-view.png",
     images: ["/images/pond-view.png", "/images/gazebo-spacious.webp", "/images/cover.png"],
   },
