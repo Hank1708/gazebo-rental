@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { TreePine, Users, Clock, Sun, ChevronLeft, ChevronRight } from "lucide-react";
 import { gazebos } from "@/lib/data";
 
@@ -19,34 +19,58 @@ const gradients = [
 
 function ImageCarousel({ images, name }: { images: string[]; name: string }) {
   const [index, setIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const prev = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIndex((i) => (i - 1 + images.length) % images.length);
+  };
+
+  const next = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIndex((i) => (i + 1) % images.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        setIndex((i) => (i + 1) % images.length);
+      } else {
+        setIndex((i) => (i - 1 + images.length) % images.length);
+      }
+    }
+  };
 
   if (images.length === 0 || images[0] === "gradient") {
     return null;
   }
 
   return (
-    <div className="relative h-48 group">
-      <img src={images[index]} alt={name} className="h-full w-full object-cover" />
+    <div
+      className="relative h-48 group select-none"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      <img src={images[index]} alt={name} className="h-full w-full object-cover pointer-events-none" draggable={false} />
       {images.length > 1 && (
         <>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setIndex((i) => (i - 1 + images.length) % images.length);
-            }}
-            className="absolute left-1 top-1/2 -translate-y-1/2 rounded-full bg-black/30 p-1.5 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50"
-          >
+          <button onClick={prev} className="absolute left-1 top-1/2 -translate-y-1/2 rounded-full bg-black/30 p-1.5 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50">
             <ChevronLeft className="h-4 w-4" />
           </button>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setIndex((i) => (i + 1) % images.length);
-            }}
-            className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-black/30 p-1.5 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50"
-          >
+          <button onClick={next} className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-black/30 p-1.5 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50">
             <ChevronRight className="h-4 w-4" />
           </button>
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
