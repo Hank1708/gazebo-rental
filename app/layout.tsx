@@ -4,8 +4,15 @@ import "./globals.css";
 import { TreePine, Home, Phone, Star, Images } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Беседки у Сузгарьевского водоёма",
-  description: "Аренда беседок у Сузгарьевского водоёма",
+  title: "Аренда беседок у Сузгарьевского водоёма | Сузгарье",
+  description: "Уютные беседки для отдыха у Сузгарьевского водоёма в Мордовии. Большая, Средняя, Домик Рыбака, Маленькие беседки. Волейбольная площадка. Живописное место для отдыха с семьёй и друзьями.",
+  keywords: ["аренда беседок", "Сузгарьевский водоём", "Сузгарье", "Мордовия", "Рузаевка", "отдых на природе", "беседки Мордовия", "шашлыки"],
+  openGraph: {
+    title: "Аренда беседок у Сузгарьевского водоёма",
+    description: "Уютные беседки для отдыха у Сузгарьевского водоёма в Мордовии.",
+    type: "website",
+    locale: "ru_RU",
+  },
 };
 
 export default function RootLayout({
@@ -47,7 +54,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <footer className="border-t border-teal-100 bg-white/40">
           <div className="container mx-auto px-4 py-6 text-center text-sm text-teal-500">
-            <p>© {new Date().getFullYear()} Беседки у Сузгарьевского водоёма</p>
+            <p>© {new Date().getFullYear()} Беседки у Сузгарьевского водоёма | Мордовия, Рузаевский район</p>
           </div>
         </footer>
       </body>
