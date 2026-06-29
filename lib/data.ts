@@ -5,7 +5,7 @@ export interface Gazebo {
   description: string;
   fullDescription: string;
   pricePerHour?: number;
-  pricePerDay: number;
+  pricePerDay?: number;
   image: string;
   images: string[];
 }
