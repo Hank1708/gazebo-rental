@@ -56,7 +56,7 @@ export default function HomePage() {
                     </span>
                     <span className="flex items-center gap-1">
                       <Sun className="h-4 w-4" />
-                      {formatPrice(gazebo.pricePerDay)}/день
+                      {gazebo.pricePerDay && formatPrice(gazebo.pricePerDay)}/день
                     </span>
                   </div>
                 </div>
