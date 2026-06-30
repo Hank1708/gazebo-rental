@@ -70,7 +70,7 @@ export const gazebos: Gazebo[] = [
     images: ["/images/big1.jpg", "/images/big2.jpg", "/images/big3.jpg"],
   },
   {
-    id: "gazebo-2", name: "Беседка «Средняя»", capacity: 12,
+    id: "gazebo-2", name: "Беседка «Средняя»", capacity: 20,
     description: "Уютная беседка для компании друзей или семьи.",
     fullDescription: "Беседка «Средняя» — отличный выбор для компании до 12 человек. Внутри — стол, скамейки, мангал рядом. Электричество проведено, есть освещение и розетки.",
     pricePerDay: 3000,
