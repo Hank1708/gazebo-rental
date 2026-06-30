@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Star, MessageSquareText } from "lucide-react";
+import { ArrowLeft, Star, MessageSquareText, ExternalLink } from "lucide-react";
 import { reviews } from "@/lib/data";
 
 function formatDate(isoDate: string): string {
@@ -21,13 +21,27 @@ export default function ReviewsPage() {
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">Что говорят наши посетители об отдыхе у Сузгарьевского водоёма</p>
       </section>
 
+      <section className="text-center">
+        <a
+          href="https://yandex.ru/profile/188654077164"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-black font-medium rounded-xl transition-colors shadow-md"
+        >
+          <Star className="h-5 w-5 fill-current" />
+          Оставить отзыв на Яндекс.Картах
+          <ExternalLink className="h-4 w-4" />
+        </a>
+        <p className="text-sm text-gray-500 mt-2">Ваш отзыв поможет другим гостям выбрать место для отдыха</p>
+      </section>
+
       <section>
         <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
           {reviews.map((review) => (
-            <div key={review.id} className="bg-white rounded-xl shadow-md p-6 space-y-3">
+            <div key={review.id} className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-md p-6 space-y-3 border border-white/50">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="font-semibold text-lg">{review.name}</h3>
+                  <h3 className="font-semibold text-lg text-teal-900">{review.name}</h3>
                   <p className="text-sm text-gray-500">{formatDate(review.date)}</p>
                 </div>
                 <span className="flex gap-0.5">
